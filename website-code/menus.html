@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu and Upcoming Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;    
+            background-image: url(../imgs/1-background.jpg); /* Use your custom background image */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent image repetition */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            color: white;
+            position: fixed; /* Make the header fixed */
+            top: 0; /* Position at the top */
+            left: 0; /* Position at the left */
+            right: 0; /* Position at the right */
+            z-index: 1000; /* Ensure the header is above other content */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Restaurant Menu Section */
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 20px; /* Added padding to avoid content overlap with the fixed header */
+            text-align: center;
+        }
+
+        h1 {
+            color: red;
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: rgb(237, 226, 226);
+            margin-bottom: 20px;
+        }
+
+        .category-buttons {
+            margin-bottom: 30px;
+        }
+
+        .category-buttons button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .menu-item p {
+            font-size: 1.2rem;
+            color: red;
+            margin: 10px 0;
+        }
+
+        .menu-item span {
+            font-size: 1rem;
+            color: grey;
+        }
+
+        /* Upcoming Events Section */
+        .event-section {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .event-section h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .event-section h3 {
+            color: #dc3545;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            margin: 0 15px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .card-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .read-more {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../imgs/logo.png" alt="Food Lover Logo" style="height: 50px; width: 70px;">
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="1.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="About.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="menus.html">Menus</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="reservation.html">Reservation</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Restaurant Menu Section -->
+    <div class="menu-container">
+        <h2>RESTAURANT MENU</h2>
+
+        <div class="category-buttons">
+            <button>All Dishes</button>
+            <button>Dinner</button>
+            <button>Lunch</button>
+            <button>Drinks</button>
+            <button>Starter</button>
+        </div>
+
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="../imgs/manchrian.webp" alt="Chicken Dish">
+                <p>Only On ₹299</p>
+                <span>Dry Manchuriyan</span>
+            </div>
+            <div class="menu-item">
+                <img src='../imgs/menus-momos.png'>
+                <p>Only On ₹199</p>
+                <span>Veg Momos</span>
+            </div>
+            <div class="menu-item">
+                <img src='../imgs/samosa.jpg' alt="French Toast">
+                <p>Only On ₹99</p>
+                <span>Samosa</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events Section -->
+    <section class="event-section">
+        <h3>Month of March</h3>
+        <h1>UPCOMING EVENTS</h1>
+
+        <div id="eventCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#eventCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src='../imgs/food-festival.jpg' alt="Event Image 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Food Festival</h5>
+                                    <p class="card-text">Join us for a weekend of culinary delights and great vibes at our food festival!</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src='../imgs/brunch.jpeg' class="card-img-top" alt="Event Image 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Weekend Brunch</h5>
+                                    <p class="card-text">Enjoy a relaxing weekend brunch with delicious food and drinks at our restaurant.</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../imgs/nght-light.jpg" class="card-img-top" alt="Event Image 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Live Music Night</h5>
+                                    <p class="card-text">Experience an unforgettable evening of live music performances.</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
